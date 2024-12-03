@@ -1,10 +1,9 @@
 package com.employee;
-//import com.letter.*;
 public class Employee implements EmployeeI{
 
-    public String empName;
-    public int empId;
-    String letter;
+    private String empName;
+    private int empId;
+    public String letter;
 
     public Employee(String name, int id){
         empName = name;
@@ -12,8 +11,8 @@ public class Employee implements EmployeeI{
     }
     public void displayDetails(){
         System.out.println();
-        System.out.println("employee name: "+empName);
-        System.out.println("employee id: "+empId);
+        System.out.println("employee name: " + empName);
+        System.out.println("employee id: " + empId);
     }
 
     public void writeLetter(String letter){
@@ -21,6 +20,6 @@ public class Employee implements EmployeeI{
     }
 
     public String getLetter(){
-        return  letter;
+        return letter;
     }
 }

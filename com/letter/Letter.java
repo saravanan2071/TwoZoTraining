@@ -3,9 +3,9 @@ import java.util.Date;
 
 import com.employee.EmployeeI;
 public class Letter implements LetterI{
-	
+
 	private EmployeeI emp;
-	protected String letter;
+	private String letter;
 	private static String status = "Pending";
 	private static Date date = new Date();
 
@@ -19,7 +19,9 @@ public class Letter implements LetterI{
 	
 	public void displayDetails(){
 		letter = emp.getLetter();
+		System.out.println();
 		System.out.println("Letter Details");
+		System.out.println("---------------");
 		System.out.println("Letter : " + letter);
 		System.out.println("Status : " + status);
 		System.out.println("Date : " + date);

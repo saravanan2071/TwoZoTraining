@@ -7,11 +7,11 @@ public class Manager implements ManagerI{
 
 	private final String mgrName = "smith";
 	private EmployeeI emp;
-	private LetterI le;
+	private LetterI letterI;
 
-	public Manager(EmployeeI emp, LetterI le){
+	public Manager(EmployeeI emp, LetterI letterI){
 		this.emp = emp;
-		this.le = le;
+		this.letterI = letterI;
 	}
 	public void displayDetails(){
 		System.out.println();
@@ -21,7 +21,10 @@ public class Manager implements ManagerI{
 	public void reviewLetter(){
 		String req = emp.getLetter();
 		if (req.equalsIgnoreCase("sickleave")) {
-			le.setStatus("Accepted");
+			letterI.setStatus("Accepted");
+		}
+		else{
+			letterI.setStatus("rejected");
 		}
 	}
  }

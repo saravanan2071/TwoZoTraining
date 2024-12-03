@@ -8,7 +8,7 @@ class Main {
 
         public static void main(String[] args){
             Employee emp = new Employee("saravanan", 4401);
-            emp.writeLetter("sickLeave");
+            emp.writeLetter("SickLeave");
 
             Letter letter = new Letter(emp);
             letter.displayDetails();
