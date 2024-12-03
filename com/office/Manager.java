@@ -1,38 +1,27 @@
 package com.office;
-import com.letter.*;
-import com.student.Student;
-public class Manager extends Thread{
-	// object type of student class for the manager identify the student
-	public Student s;
-	
-	//manager class constructor
-	public Manager(Student s) {
-		this.s= s;
+
+import com.employee.EmployeeI;
+import com.letter.LetterI;
+
+public class Manager implements ManagerI{
+
+	private final String mgrName = "smith";
+	private EmployeeI emp;
+	private LetterI le;
+
+	public Manager(EmployeeI emp, LetterI le){
+		this.emp = emp;
+		this.le = le;
 	}
-	
-	private final String managerName = "smith";
-	
-	// method for review the letter recived from the Student
-	public void reviewLetter(String content) {
-		// create the object for set about the status of the letter
-		Letter letterStatus = new Letter(content);
-		
-		
-			if(content.equalsIgnoreCase("Sick Leave")) {
-				letterStatus.setStatus("Approved");
-				System.out.println("Letter is Approved by " + managerName);
-			}
-			else if(content.equalsIgnoreCase("Need Time for fees Payment")) {
-				letterStatus.setStatus("Approved");
-				System.out.println("Letter is Approved by " + managerName);
-			}
-			else if(content.equalsIgnoreCase("on Duty")) {
-				letterStatus.setStatus("Approved");
-				System.out.println("Letter is Approved by " + managerName);
-			}
-			else{
-				letterStatus.setStatus("Rejected");
-				System.out.println("Letter is Rejected by " + managerName);
-			}
+	public void displayDetails(){
+		System.out.println();
+		System.out.println("Manager Name: "+ mgrName);
+	}
+
+	public void reviewLetter(){
+		String req = emp.getLetter();
+		if (req.equalsIgnoreCase("sickleave")) {
+			le.setStatus("Accepted");
+		}
 	}
  }

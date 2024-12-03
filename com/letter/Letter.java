@@ -1,24 +1,26 @@
 package com.letter;
 import java.util.Date;
-public class Letter{
-	protected final String content;
+
+import com.employee.EmployeeI;
+public class Letter implements LetterI{
+	
+	private EmployeeI emp;
+	protected String letter;
 	private static String status = "Pending";
 	private static Date date = new Date();
-	
-	// Letter class constructor
-	public Letter(String content){
-		this.content = content;
-	}
 
-	//  method for set status by the Manager
+	public Letter(EmployeeI emp){
+		this.emp = emp;
+	}
+	
 	public void setStatus(String status){
 		Letter.status = status;
 	}
-
-	// method for display the details about the current status of the letter
+	
 	public void displayDetails(){
+		letter = emp.getLetter();
 		System.out.println("Letter Details");
-		System.out.println("Letter : " + content);
+		System.out.println("Letter : " + letter);
 		System.out.println("Status : " + status);
 		System.out.println("Date : " + date);
 	}
